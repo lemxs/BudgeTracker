@@ -3,37 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BudgeTracker</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Despesas</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <style>
+      
     body {
       background-color: #333;
       color: white;
     }
 
-    .nav-wrapper{
-      padding: 0 5rem;
+
+    .custom-button {
+      margin: 5px;
     }
 
-    .card.full-width {
-      margin: 0 auto;
-    }
-    input[type="text"],
-    input[type="number"],
-    input[type="date"] {
-      color: white !important;
-    }
-    .custom-card {
-      background-color: #015457;
-      width: 200%;
+    .custom-button i {
+      font-size: 1.5rem;
     }
 
-    .card-content {
+    .custom-button .btn-small {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+    }
+
+    #titulo{
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 130%;
     }
   </style>
 </head>
@@ -48,79 +45,45 @@
       </ul>
     </div>
   </nav>
-
-  <div class="container">
-    <h1 class="center-align">Suas Despesas</h1>
-
-    <div class="row" id="lista-tarefas">
-      <div class="col s12 m6">
-        <div class="card full-width custom-card"> 
-          <div class="card-content">
-            <span class="card-title">Janeiro/2023</span>
-            <p>Total: R$ 430.00</p>
-          </div>
-          <table class="striped">
-            <thead>
-              <tr>
-                <th>Descrição</th>
-                <th>Data</th> 
-                <th>Valor</th>
-                <th>Ações</th> 
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Conta Luz</td>
-                <td>01/01/2023</td>
-                <td>R$ 70.00</td>
-                <td>
-                  <a class="btn-small waves-effect waves-light green">
-                    <i class="material-icons">edit</i> 
-                  </a>
-                  <a class="btn-small waves-effect waves-light red">
-                    <i class="material-icons">delete</i> 
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>Mercado</td>
-                <td>01/01/2023</td>
-                <td>R$ 350.00</td>
-                <td>
-                  <a class="btn-small waves-effect waves-light green">
-                    <i class="material-icons">edit</i> 
-                  </a>
-                  <a class="btn-small waves-effect waves-light red">
-                    <i class="material-icons">delete</i> 
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>Pastel</td>
-                <td>01/01/2023</td>
-                <td>R$ 10.00</td>
-                <td>
-                  <a class="btn-small waves-effect waves-light green">
-                    <i class="material-icons">edit</i> 
-                  </a>
-                  <a class="btn-small waves-effect waves-light red">
-                    <i class="material-icons">delete</i> 
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-
   
+  <div class="container">
+    <div id="titulo">
+      <h3 class="center-align" id="mes-titulo">Janeiro/2023</h3>
+      <h4 class="center-align" id="total-gasto">Total Gasto: R$ 0.00</h4>
+    </div>
+    <table class="striped custom-table #006064 cyan darken-4">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Data</th>
+          <th>Valor</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-despesas">
+        <tr>
+          <td>Conta Luz</td>
+          <td>01/01/2023</td>
+          <td>R$ 70.00</td>
+          <td>
+            <a class="btn-small waves-effect waves-light green custom-button">
+              <i class="material-icons">edit</i>
+            </a>
+            <a class="btn-small waves-effect waves-light red custom-button">
+              <i class="material-icons">delete</i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <div class="fixed-action-btn">
-    <a href="adicionar.html" class="btn-floating btn-large #00838f">
-      <i class="large material-icons">add</i>
+    <a href="adicionar.html" class="btn-floating #00838f custom-button">
+      <i class="material-icons">add</i>
     </a>
   </div>
 </body>
-<script src="./assets/js/carregar.js" ></script>
+<script src="scripts/despesas.js">
+  
+</script>
 </html>
