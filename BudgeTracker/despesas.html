@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Despesas</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="./scripts/apagar.js"defer></script>
   <style>
       
     body {
       background-color: #333;
       color: white;
     }
-
 
     .custom-button {
       margin: 5px;
@@ -33,6 +34,7 @@
       justify-content: space-between;
     }
   </style>
+  
 </head>
 <body>
   <nav>
@@ -61,19 +63,7 @@
         </tr>
       </thead>
       <tbody id="tabela-despesas">
-        <tr>
-          <td>Conta Luz</td>
-          <td>01/01/2023</td>
-          <td>R$ 70.00</td>
-          <td>
-            <a class="btn-small waves-effect waves-light green custom-button">
-              <i class="material-icons">edit</i>
-            </a>
-            <a class="btn-small waves-effect waves-light red custom-button">
-              <i class="material-icons">delete</i>
-            </a>
-          </td>
-        </tr>
+      
       </tbody>
     </table>
   </div>

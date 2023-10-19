@@ -5,25 +5,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const data = document.getElementById('data').value;
     const valor = document.getElementById('valor').value;
 
-    // Verifique se os campos estão preenchidos
+    const id = Date.now()
+    
     if (descricao && data && valor) {
       const despesa = {
         descricao,
         data,
-        valor
+        valor,
+        id
       };
 
-      // Adicione a nova despesa ao localStorage
       const despesas = JSON.parse(localStorage.getItem('despesas')) || [];
       despesas.push(despesa);
       localStorage.setItem('despesas', JSON.stringify(despesas));
 
-      // Limpe os campos de entrada
       document.getElementById('descricao').value = '';
       document.getElementById('data').value = '';
       document.getElementById('valor').value = '';
 
-      // Adicione a despesa à tabela na página "Despesas" com os botões
       const tabelaDespesas = document.getElementById('tabela-despesas');
       const novaLinha = document.createElement('tr');
       novaLinha.innerHTML = `
@@ -34,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <a class="btn-small waves-effect waves-light green custom-button">
             <i class="material-icons">edit</i>
           </a>
-          <a class="btn-small waves-effect waves-light red custom-button">
+          <a class="btn-small waves-effect waves-light red custom-button btn-apagar">
             <i class="material-icons">delete</i>
           </a>
         </td>
