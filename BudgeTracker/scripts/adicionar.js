@@ -30,12 +30,13 @@ document.addEventListener('DOMContentLoaded', function() {
         <td>${data}</td>
         <td>R$ ${valor}</td>
         <td>
-          <a class="btn-small waves-effect waves-light green custom-button">
+          <a class="btn-small waves-effect waves-light green custom-button edit-button">
             <i class="material-icons">edit</i>
           </a>
           <a class="btn-small waves-effect waves-light red custom-button btn-apagar">
             <i class="material-icons">delete</i>
           </a>
+          
         </td>
       `;
       tabelaDespesas.appendChild(novaLinha);
