@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <a class="btn-small waves-effect waves-light green custom-button edit-button">
             <i class="material-icons">edit</i>
           </a>
-          <a class="btn-small waves-effect waves-light red custom-button btn-apagar">
+          <a class="btn-small waves-effect waves-light red custom-button delete-button">
             <i class="material-icons">delete</i>
           </a>
           

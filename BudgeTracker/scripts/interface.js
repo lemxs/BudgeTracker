@@ -12,28 +12,28 @@ document.addEventListener('DOMContentLoaded', function() {
         <tr data-id="${despesa.id}">
           <td>
             <span class="descricao">${despesa.descricao}</span>
-            <input type="text" class="edit-descricao" style="display:none">
+            <input value="${despesa.descricao}" type="text" class="edit-descricao" style="display:none" >
           </td>
           <td>
             <span class="data">${despesa.data}</span>
-            <input type="date" class="edit-data" style="display:none">
+            <input value="${despesa.data}" required type="date" class="edit-data" style="display:none" >
           </td>
           <td>
             <span class="valor">R$ ${despesa.valor}</span>
-            <input type="number" class="edit-valor" style="display:none">
+            <input value="${despesa.valor}" type="number" class="edit-valor" style="display:none" >
           </td>
           <td>
-            <a class="btn-small waves-effect waves-light green custom-button edit-button">Editar</a>
-            <a class="btn-small waves-effect waves-light red custom-button btn-apagar">Apagar</a>
-            <a class="btn-small waves-effect waves-light blue custom-button save-button" style="display:none">Salvar</a>
-            <a class="btn-small waves-effect waves-light red custom-button cancel-button" style="display:none">Cancelar</a>
+            <a class="btn-small waves-effect waves-light green custom-button edit-button"><i class="material-icons">edit</i></a>
+            <a class="btn-small waves-effect waves-light red custom-button delete-button"><i class="material-icons">delete</i></a>
+            <a class="btn-small waves-effect waves-light blue custom-button save-button" style="display:none"><i class="material-icons">save</i></a>
+            <a class="btn-small waves-effect waves-light red custom-button cancel-button" style="display:none"><i class="material-icons">cancel</i></a>
           </td>
         </tr>
       `;
     });
 
     const botoesEditar = tabelaDespesas.querySelectorAll('.edit-button');
-    const botoesApagar = tabelaDespesas.querySelectorAll('.btn-apagar');
+    const botoesApagar = tabelaDespesas.querySelectorAll('.delete-button');
     const botoesSalvar = tabelaDespesas.querySelectorAll('.save-button');
     const botoesCancelar = tabelaDespesas.querySelectorAll('.cancel-button');
 
@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
     linha.querySelector('.edit-button').style.display = 'none';
     linha.querySelector('.save-button').style.display = 'block';
     linha.querySelector('.cancel-button').style.display = 'block';
+    linha.querySelector('.delete-button').style.display = 'none';
   }
 
   function salvarEdicao(id) {
@@ -87,19 +88,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const data = linha.querySelector('.edit-data').value;
     const valor = linha.querySelector('.edit-valor').value;
   
-    // Atualize os dados da despesa no seu array de despesas com base no ID
-    // Atualize os dados no localStorage
-    // Volte ao modo de visualização padrão
-  
-    // Encontre a despesa no array de despesas
-    const despesaEditada = despesas.find(despesa => despesa.id === id);
+    const despesaEditada = despesas.find(despesa => despesa.id == id);
+
     if (despesaEditada) {
       despesaEditada.descricao = descricao;
       despesaEditada.data = data;
       despesaEditada.valor = valor;
     }
   
-    // Atualize o localStorage
     localStorage.setItem('despesas', JSON.stringify(despesas));
   
     renderizarDespesas();
@@ -114,6 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     spans.forEach(span => span.style.display = 'block');
 
     linha.querySelector('.edit-button').style.display = 'block';
+    linha.querySelector('.delete-button').style.display = 'block';
     linha.querySelector('.save-button').style.display = 'none';
     linha.querySelector('.cancel-button').style.display = 'none';
 
@@ -123,10 +120,12 @@ document.addEventListener('DOMContentLoaded', function() {
   function apagarDespesa(id) {
     const despesas = JSON.parse(localStorage.getItem("despesas")) || [];
     
-    const despesas_filtradas = despesas.filter(despesa => despesa.id !== id);
+    const despesas_filtradas = despesas.filter(despesa => despesa.id != id);
+    console.log(despesas_filtradas)
   
     localStorage.setItem("despesas", JSON.stringify(despesas_filtradas));
     
     renderizarDespesas();
   }
+
 });
